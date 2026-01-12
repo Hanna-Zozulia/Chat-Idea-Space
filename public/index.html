@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Idea Space</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Nunito:wght@400;600;800&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="shell">
+      <header class="header">
+        <div>
+          <h1>Idea Space</h1>
+        </div>
+        <div class="status-card">
+          <p class="status-title">Server</p>
+          <p id="status-pill" class="status-pill status-pill--offline">Offline</p>
+          <p class="status-hint">Start the server, then share your ngrok URL.</p>
+        </div>
+      </header>
+
+      <section class="chat">
+        <div class="chat__board">
+          <div class="chat__board-header">
+            <div class="chat__board-title">
+              <span>Room</span>
+            </div>
+          </div>
+          <div id="messages" class="chat__messages" aria-live="polite"></div>
+        </div>
+
+        <aside class="chat__composer">
+          <label class="field">
+            <span class="field__label">Your name</span>
+            <input id="author" class="field__input" maxlength="30" placeholder="Player One" />
+          </label>
+          <label class="field">
+            <span class="field__label">Message</span>
+            <textarea
+              id="message"
+              class="field__input field__input--textarea"
+              maxlength="500"
+              placeholder="Type something heroic..."
+              rows="3"
+            ></textarea>
+          </label>
+          <button id="send" class="button">
+            <span class="button__shine"></span>
+            Send
+          </button>
+          <p id="feedback" class="feedback" role="status" aria-live="polite"></p>
+          <div class="tip">
+            <p class="tip__title">Tip</p>
+            <p class="tip__body">
+              Start the app locally, then run ngrok:
+              <code>ngrok http 3000</code>. Share the generated https link.
+            </p>
+          </div>
+        </aside>
+      </section>
+    </main>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="client.js"></script>
+  </body>
+</html>
