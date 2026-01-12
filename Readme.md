@@ -1,4 +1,3 @@
-Set-Content -Path README.md -Value @"
 # Chat Project
 
 ---
